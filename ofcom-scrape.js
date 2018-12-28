@@ -28,6 +28,9 @@ async function click(page, selector) {
   }
 }
 
+/* This function is run in the browser and makes the callsign-checking call to the
+ * server, returning the JS status object.
+ */
 function avcheck(suffix) {
   let inputParam = {};
   inputParam['licenceType'] = CS.getAttributeValue('Licence_Type_0');
