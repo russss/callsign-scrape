@@ -67,10 +67,15 @@ class OfcomScrape {
       'input#login:template:guest:password': password,
     });
     await click(this.page, 'input#login:template:guest:login');
+
+    // We need to wait for an actual page to appear, as the login does two redirects.
     await waitFor(this.page, 'div.of-wrapper');
+
+    // Check for a login error
     if (await this.page.$(transformSelector('#login:template:error'))) {
       return false;
     }
+    // Wait for the whole logged-in page to load
     await waitFor(
       this.page,
       'input#dashboard:template:internal:licensingTab:j_id109:applyForLicence',
