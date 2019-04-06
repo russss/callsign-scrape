@@ -81,7 +81,7 @@ class OfcomScrape {
     // Wait for the whole logged-in page to load
     await waitFor(
       this.page,
-      'input#dashboard:template:internal:licensingTab:j_id109:applyForLicence',
+      'input#dashboard:template:internal:licensingTab:j_id118:applyForLicence',
     );
     return true;
   }
